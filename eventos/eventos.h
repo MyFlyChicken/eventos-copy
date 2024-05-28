@@ -135,7 +135,7 @@ typedef struct eos_actor {
 #endif
 #if (EOS_MCU_TYPE == 32 || EOS_MCU_TYPE == 16)
     eos_u32_t priority : 5; //执行优先级，可根据具体情况进行调整
-    eos_u32_t mode     : 1; //执行模式
+    eos_u32_t mode     : 1; //执行模式，层次状态机或事件驱动
     eos_u32_t enabled  : 1; //启动标志
     eos_u32_t reserve  : 1; //保留
 #else

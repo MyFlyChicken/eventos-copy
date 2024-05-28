@@ -157,7 +157,7 @@ typedef struct eos_tag {
     eos_u32_t magic;
 #endif
 #if (EOS_USE_PUB_SUB != 0)
-    eos_mcu_t* sub_table; // event sub table 订阅表指针
+    eos_mcu_t* sub_table; // event sub table 订阅表指针，(待定：每一个订阅可以缓存sizeof(eos_mcu_t)个事件)
 #endif
 
     eos_mcu_t    actor_exist;           //按位判断优先级是否存在
