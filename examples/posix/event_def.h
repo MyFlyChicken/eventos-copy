@@ -7,7 +7,8 @@
 enum {
     Event_Test = Event_User,
     Event_Time_500ms,
-
+    Event_Time_1000ms,
+    Event_ActEnd,
     Event_Max
 };
 

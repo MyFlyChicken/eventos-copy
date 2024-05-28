@@ -7,14 +7,13 @@
 /* data structure ----------------------------------------------------------- */
 typedef struct eos_reactor_led_tag {
     eos_reactor_t super;
-
-    eos_u8_t status;
+    eos_u8_t      status;
 } eos_reactor_led_t;
 
 eos_reactor_led_t actor_led;
 
 /* static event handler ----------------------------------------------------- */
-static void led_e_handler(eos_reactor_led_t * const me, eos_event_t const * const e);
+static void led_e_handler(eos_reactor_led_t* const me, eos_event_t const* const e);
 
 /* api ---------------------------------------------------- */
 void eos_reactor_led_init(void)
@@ -25,7 +24,7 @@ void eos_reactor_led_init(void)
     actor_led.status = 0;
 
 #if (EOS_USE_PUB_SUB != 0)
-    eos_event_sub((eos_actor_t *)(&actor_led), Event_Time_1000ms);
+    eos_event_sub(( eos_actor_t* )(&actor_led), Event_Time_1000ms);
 #endif
 #if (EOS_USE_TIME_EVENT != 0)
     eos_event_pub_period(Event_Time_1000ms, 1000);
@@ -33,11 +32,10 @@ void eos_reactor_led_init(void)
 }
 
 /* static state function ---------------------------------------------------- */
-static void led_e_handler(eos_reactor_led_t * const me, eos_event_t const * const e)
+static void led_e_handler(eos_reactor_led_t* const me, eos_event_t const* const e)
 {
-    if (e->topic == Event_Time_1000ms) {
+    if (e->topic == Event_Time_1000ms)
+    {
         me->status = (me->status == 0) ? 1 : 0;
     }
 }
-
-
